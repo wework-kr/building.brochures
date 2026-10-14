@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" id="pageDescription" content="서울과 부산의 위워크 지점별 디지털 브로셔를 한곳에서 확인하세요.">
+<meta name="robots" content="noindex, nofollow">
+<title>지점별 디지털 브로셔 | WeWork Korea</title>
+<style>
+:root{--white:#fff;--ink:#171717;--muted:#63666c;--blue:#425DB7;--blue-dark:#283f89;--blue-lite:#E2EAFD;--blue-soft:#AEC3FA;--line:#e5e8ef;--canvas:#fafbfc;--shadow:0 12px 34px rgba(21,34,67,.055)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;-webkit-font-smoothing:antialiased}
+button,input{font:inherit}
+a{color:inherit}
+.container{width:min(1080px,calc(100% - 48px));margin:0 auto}
+.site-header{background:#fff;border-bottom:1px solid var(--line)}
+.site-header .container{display:flex;justify-content:space-between;align-items:center;min-height:82px;gap:18px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{display:block;width:112px;height:auto}
+.logo-fallback{font-weight:850;font-size:27px;letter-spacing:-2px;display:none}
+.header-actions{display:flex;align-items:center;gap:22px}
+.header-tag{font-size:11px;letter-spacing:1.3px;color:#71757c;font-weight:700;white-space:nowrap}
+.language-switch{display:flex;gap:2px;padding:3px;border:1px solid #dce3ef;border-radius:7px;background:#f6f8fd}
+.lang-btn{padding:7px 10px;border:0;background:transparent;border-radius:4px;color:#6d7584;font-size:12px;line-height:1.3;cursor:pointer}
+.lang-btn[aria-pressed="true"]{background:#fff;color:var(--blue-dark);font-weight:750;box-shadow:0 1px 5px rgba(31,49,87,.12)}
+.lang-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.hero{background:#fff;border-top:4px solid var(--blue);padding:68px 0 62px}
+.hero-copy{max-width:740px}
+.eyebrow{font-size:11px;letter-spacing:1.65px;color:var(--blue);font-weight:800}
+h1{font-size:clamp(32px,5.1vw,52px);line-height:1.28;letter-spacing:-1.7px;margin:15px 0 16px;font-weight:780}
+.hero p{color:#555b66;font-size:15px;line-height:1.85;margin:0;max-width:655px;word-break:keep-all}
+.underbar{width:60px;height:5px;background:var(--blue-soft);margin-top:30px}
+.main{padding:36px 0 76px}
+.toolbar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:16px}
+.toolbar-title{font-weight:750;letter-spacing:-.3px;font-size:17px}
+.total{font-size:13px;color:#777d86;margin-left:7px;font-weight:500}
+.search{width:min(350px,100%);position:relative}
+.search svg{position:absolute;top:50%;left:15px;transform:translateY(-50%);color:#737f9d}
+.search input{width:100%;height:45px;padding:0 15px 0 43px;border:1px solid #d6dce7;border-radius:8px;background:#fff;color:#141414;outline:none;font-size:13px}
+.search input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(66,93,183,.1)}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:36px}
+.filter{border:1px solid #dbe0e9;background:#fff;color:#515966;padding:10px 14px;border-radius:7px;cursor:pointer;font-size:13px;transition:.2s}
+.filter-count{font-size:11px;color:#8c97ad;margin-left:5px}
+.filter:hover{border-color:var(--blue-soft);color:var(--blue-dark)}
+.filter[aria-pressed="true"]{color:#fff;background:var(--blue);border-color:var(--blue);font-weight:700}
+.filter[aria-pressed="true"] .filter-count{color:#e8eeff}
+.region-section{margin:37px 0 46px}
+.section-heading{display:flex;align-items:end;justify-content:space-between;margin-bottom:17px;gap:8px}
+.section-heading .eyebrow{font-size:10px;letter-spacing:1.2px}
+h2{font-size:22px;margin:5px 0 0;letter-spacing:-.5px}
+.section-count{font-size:12px;color:#7b8290}
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.location-card{min-height:118px;display:flex;align-items:center;gap:14px;padding:20px 18px;background:#fff;border:1px solid var(--line);text-decoration:none;box-shadow:0 2px 7px rgba(20,39,82,.015);transition:transform .18s,border-color .18s,box-shadow .18s;border-radius:5px}
+.location-card:hover{border-color:#b1c5fb;box-shadow:var(--shadow);transform:translateY(-2px)}
+.location-card:focus-visible{outline:3px solid var(--blue-soft);outline-offset:2px}
+.location-card[hidden],.region-section[hidden]{display:none!important}
+.card-mark{width:5px;height:54px;background:var(--blue-soft);flex:0 0 auto}
+.card-info{display:flex;min-width:0;flex:1;flex-direction:column;gap:7px}
+.card-title{font-size:15px;font-weight:750;line-height:1.4;word-break:keep-all}
+.card-address{font-size:11.5px;color:#737b89;line-height:1.55;overflow-wrap:anywhere;word-break:keep-all}
+.open-icon{align-self:center;color:var(--blue);font-size:20px;font-weight:400;flex:none}
+.empty{padding:44px 20px;background:#fff;border:1px dashed #c7d3ea;border-radius:8px;text-align:center;color:#666e7c;display:none}
+.empty strong{display:block;color:#2c3445;font-size:16px;margin-bottom:8px}
+.note{padding:20px 23px;border-left:4px solid var(--blue-soft);background:var(--blue-lite);font-size:12px;color:#4c5a76;line-height:1.8;word-break:keep-all}
+.footer{border-top:1px solid #e4e7ed;padding:25px 0 35px;background:#fff}
+.footer .container{display:flex;justify-content:space-between;align-items:center;gap:20px;color:#91949c;font-size:11px}
+.footer a{color:var(--blue-dark);text-decoration:none}
+.footer a:hover{text-decoration:underline}
+@media(max-width:950px){.header-tag{display:none}}
+@media(max-width:850px){.card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.container{width:min(100% - 32px,1080px)}.site-header .container{min-height:70px}.logo img{width:100px}.hero{padding:49px 0 44px}h1{letter-spacing:-1.1px}.hero p{font-size:14px}.main{padding-top:27px}.toolbar{align-items:stretch;flex-direction:column}.search{width:100%}.filters{gap:7px;margin-bottom:25px}.filter{padding:9px 11px;font-size:12px}.card-grid{grid-template-columns:1fr;gap:9px}.location-card{min-height:88px;padding:16px 17px}.card-mark{height:47px}.region-section{margin:31px 0}.footer .container{flex-direction:column;align-items:flex-start;gap:9px}.lang-btn{padding:7px 9px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a class="logo" id="brandLink" href="https://www.wework.com/ko-KR/search" target="_blank" rel="noopener noreferrer" aria-label="WeWork 홈페이지 열기"><img src="https://image2url.com/r2/default/images/1773642223148-517ebdde-1cf7-46e5-9e6e-5b3a69e18dc5.png" alt="WeWork" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">wework</span></a>
+<div class="header-actions"><div class="header-tag" id="headerTag">KOREA · LOCATION BROCHURES</div><nav class="language-switch" aria-label="Language / 언어"><button type="button" class="lang-btn" data-lang="ko" aria-pressed="true">한국어</button><button type="button" class="lang-btn" data-lang="en" aria-pressed="false">English</button></nav></div>
+</div></header>
+<section class="hero"><div class="container"><div class="hero-copy">
+<div class="eyebrow" id="heroEyebrow">EXPLORE WEWORK LOCATIONS</div>
+<h1 id="heroTitle">관심 있는 위워크 지점,<br>더 자세히 살펴보세요.</h1>
+<p id="heroDescription">서울과 부산의 위워크 지점별 디지털 브로셔를 한곳에 모았습니다.<br>지역이나 지점명으로 검색하고, 원하는 지점의 소개 자료를 확인해 보세요.</p>
+<div class="underbar" aria-hidden="true"></div>
+</div></div></section>
+<main class="main"><div class="container">
+<div class="toolbar"><div class="toolbar-title"><span id="toolbarTitle">지점별 디지털 브로셔</span> <span class="total" id="resultCount" role="status" aria-live="polite">총 18개 지점</span></div>
+<label class="search"><svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg><input id="searchInput" type="search" placeholder="지점명·주소 검색 (예: 강남, 여의도)" aria-label="지점명 또는 주소 검색" autocomplete="off"></label></div>
+<div class="filters" id="filters" aria-label="지역별 필터"><button class="filter" type="button" data-region="all" aria-pressed="true"><span class="filter-name">전체</span> <span class="filter-count">18</span></button><button class="filter" type="button" data-region="gangnam" aria-pressed="false"><span class="filter-name">강남권</span> <span class="filter-count">12</span></button><button class="filter" type="button" data-region="central" aria-pressed="false"><span class="filter-name">도심·홍대</span> <span class="filter-count">3</span></button><button class="filter" type="button" data-region="yeouido" aria-pressed="false"><span class="filter-name">여의도</span> <span class="filter-count">1</span></button><button class="filter" type="button" data-region="busan" aria-pressed="false"><span class="filter-name">부산</span> <span class="filter-count">2</span></button></div>
+<div id="sections"><section class="region-section" data-section="gangnam" aria-label="강남권">
+      <div class="section-heading"><div><span class="eyebrow">GANGNAM AREA</span><h2>강남권</h2></div><span class="section-count">12개 지점</span></div>
+      <div class="card-grid"><a class="location-card" data-name-ko="강남역점" data-name-en="Gangnam Station" data-address-ko="서울시 서초구 강남대로 373, 홍우빌딩 10층" data-address-en="10F, Hongwoo Building, 373 Gangnam-daero, Seocho-gu, Seoul" href="https://property.wework.com/gangnam-station-seoul" target="_blank" rel="noopener noreferrer" aria-label="강남역점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">강남역점</span><span class="card-address">서울시 서초구 강남대로 373, 홍우빌딩 10층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a><a class="location-card" data-name-ko="강남역 2호점" data-name-en="Gangnam Station 2" data-address-ko="서울시 강남구 테헤란로5길 7, KG타워 10층" data-address-en="10F, KG Tower, 7 Teheran-ro 5-gil, Gangnam-gu, Seoul" href="https://property.wework.com/gangnam-station-ii-seoul" target="_blank" rel="noopener noreferrer" aria-label="강남역 2호점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">강남역 2호점</span><span class="card-address">서울시 강남구 테헤란로5길 7, KG타워 10층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a><a class="location-card" data-name-ko="삼성역점" data-name-en="Samseong Station" data-address-ko="서울시 강남구 테헤란로 507, WeWork빌딩 지하1층" data-address-en="B1F, WeWork Building, 507 Teheran-ro, Gangnam-gu, Seoul" href="https://property.wework.com/samseong-station-seoul" target="_blank" rel="noopener noreferrer" aria-label="삼성역점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">삼성역점</span><span class="card-address">서울시 강남구 테헤란로 507, WeWork빌딩 지하1층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a><a class="location-card" data-name-ko="삼성역 2호점" data-name-en="Samseong Station 2" data-address-ko="서울시 강남구 테헤란로 518, 섬유센터 10층" data-address-en="10F, Textile Center, 518 Teheran-ro, Gangnam-gu, Seoul" href="https://property.wework.com/samseong-station-ii-seoul/p/1" target="_blank" rel="noopener noreferrer" aria-label="삼성역 2호점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">삼성역 2호점</span><span class="card-address">서울시 강남구 테헤란로 518, 섬유센터 10층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a><a class="location-card" data-name-ko="선릉점" data-name-en="Seolleung" data-address-ko="서울시 강남구 테헤란로 302, 위워크타워 지하1층" data-address-en="B1F, WeWork Tower, 302 Teheran-ro, Gangnam-gu, Seoul" href="https://property.wework.com/seolleung-korea/p/1" target="_blank" rel="noopener noreferrer" aria-label="선릉점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">선릉점</span><span class="card-address">서울시 강남구 테헤란로 302, 위워크타워 지하1층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a><a class="location-card" data-name-ko="선릉 2호점" data-name-en="Seolleung 2" data-address-ko="서울시 강남구 테헤란로 427, 위워크타워 1층" data-address-en="1F, WeWork Tower, 427 Teheran-ro, Gangnam-gu, Seoul" href="https://property.wework.com/seolleung-ii-seoul/p/1" target="_blank" rel="noopener noreferrer" aria-label="선릉 2호점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">선릉 2호점</span><span class="card-address">서울시 강남구 테헤란로 427, 위워크타워 1층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a><a class="location-card" data-name-ko="선릉 3호점" data-name-en="Seolleung 3" data-address-ko="서울시 강남구 선릉로 428, 2층" data-address-en="2F, 428 Seolleung-ro, Gangnam-gu, Seoul" href="https://property.wework.com/seolleung-iii-seoul" target="_blank" rel="noopener noreferrer" aria-label="선릉 3호점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">선릉 3호점</span><span class="card-address">서울시 강남구 선릉로 428, 2층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a><a class="location-card" data-name-ko="신논현점" data-name-en="Sinnonhyeon" data-address-ko="서울시 서초구 서초대로77길 55, 에이프로스퀘어 6층" data-address-en="6F, A Pro Square, 55 Seocho-daero 77-gil, Seocho-gu, Seoul" href="https://property.wework.com/sinnonhyeon-seoul/p/1" target="_blank" rel="noopener noreferrer" aria-label="신논현점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">신논현점</span><span class="card-address">서울시 서초구 서초대로77길 55, 에이프로스퀘어 6층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a><a class="location-card" data-name-ko="신사점" data-name-en="Sinsa" data-address-ko="서울시 강남구 강남대로 586, 1층" data-address-en="1F, 586 Gangnam-daero, Gangnam-gu, Seoul" href="https://property.wework.com/sinsa-seoul" target="_blank" rel="noopener noreferrer" aria-label="신사점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">신사점</span><span class="card-address">서울시 강남구 강남대로 586, 1층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a><a class="location-card" data-name-ko="역삼역점" data-name-en="Yeoksam Station" data-address-ko="서울시 강남구 테헤란로 142, 캐피탈타워 3층" data-address-en="3F, Capital Tower, 142 Teheran-ro, Gangnam-gu, Seoul" href="https://property.wework.com/yeoksam-station-seoul" target="_blank" rel="noopener noreferrer" aria-label="역삼역점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">역삼역점</span><span class="card-address">서울시 강남구 테헤란로 142, 캐피탈타워 3층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a><a class="location-card" data-name-ko="역삼역 2호점" data-name-en="Yeoksam Station 2" data-address-ko="서울시 강남구 테헤란로26길 14, 대세빌딩 1층" data-address-en="1F, Daese Building, 14 Teheran-ro 26-gil, Gangnam-gu, Seoul" href="https://property.wework.com/yeoksam-station-ii-seoul" target="_blank" rel="noopener noreferrer" aria-label="역삼역 2호점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">역삼역 2호점</span><span class="card-address">서울시 강남구 테헤란로26길 14, 대세빌딩 1층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a><a class="location-card" data-name-ko="디자이너클럽점" data-name-en="Designer Club" data-address-ko="서울시 강남구 선릉로 818, 디자이너클럽빌딩 6층" data-address-en="6F, Designer Club Building, 818 Seolleung-ro, Gangnam-gu, Seoul" href="https://property.wework.com/designer-club-seoul" target="_blank" rel="noopener noreferrer" aria-label="디자이너클럽점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">디자이너클럽점</span><span class="card-address">서울시 강남구 선릉로 818, 디자이너클럽빌딩 6층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a></div>
+    </section><section class="region-section" data-section="central" aria-label="도심·홍대">
+      <div class="section-heading"><div><span class="eyebrow">CENTRAL SEOUL & HONGDAE</span><h2>도심·홍대</h2></div><span class="section-count">3개 지점</span></div>
+      <div class="card-grid"><a class="location-card" data-name-ko="광화문점" data-name-en="Gwanghwamun" data-address-ko="서울시 종로구 종로1길 50, 더케이트윈타워 B동 2층" data-address-en="2F, Tower B, The K Twin Towers, 50 Jong-ro 1-gil, Jongno-gu, Seoul" href="https://property.wework.com/gwanghwamun-seoul" target="_blank" rel="noopener noreferrer" aria-label="광화문점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">광화문점</span><span class="card-address">서울시 종로구 종로1길 50, 더케이트윈타워 B동 2층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a><a class="location-card" data-name-ko="서울역점" data-name-en="Seoul Square" data-address-ko="서울시 중구 한강대로 416, 서울스퀘어 13층" data-address-en="13F, Seoul Square, 416 Hangang-daero, Jung-gu, Seoul" href="https://property.wework.com/seoul-square-seoul" target="_blank" rel="noopener noreferrer" aria-label="서울역점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">서울역점</span><span class="card-address">서울시 중구 한강대로 416, 서울스퀘어 13층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a><a class="location-card" data-name-ko="홍대점" data-name-en="Hongdae" data-address-ko="서울시 마포구 양화로 147, 4층" data-address-en="4F, 147 Yanghwa-ro, Mapo-gu, Seoul" href="https://property.wework.com/hongdae-seoul" target="_blank" rel="noopener noreferrer" aria-label="홍대점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">홍대점</span><span class="card-address">서울시 마포구 양화로 147, 4층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a></div>
+    </section><section class="region-section" data-section="yeouido" aria-label="여의도">
+      <div class="section-heading"><div><span class="eyebrow">YEOUIDO</span><h2>여의도</h2></div><span class="section-count">1개 지점</span></div>
+      <div class="card-grid"><a class="location-card" data-name-ko="여의도역점" data-name-en="Yeouido Station" data-address-ko="서울시 영등포구 의사당대로 83, 오투타워 20층" data-address-en="20F, O2 Tower, 83 Uisadang-daero, Yeongdeungpo-gu, Seoul" href="https://property.wework.com/yeouido-station-seoul" target="_blank" rel="noopener noreferrer" aria-label="여의도역점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">여의도역점</span><span class="card-address">서울시 영등포구 의사당대로 83, 오투타워 20층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a></div>
+    </section><section class="region-section" data-section="busan" aria-label="부산">
+      <div class="section-heading"><div><span class="eyebrow">BUSAN</span><h2>부산</h2></div><span class="section-count">2개 지점</span></div>
+      <div class="card-grid"><a class="location-card" data-name-ko="부산 BIFC점" data-name-en="Busan BIFC" data-address-ko="부산시 남구 전포대로 133, 11층" data-address-en="11F, 133 Jeonpo-daero, Nam-gu, Busan" href="https://property.wework.com/bifc-busan/p/1" target="_blank" rel="noopener noreferrer" aria-label="부산 BIFC점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">부산 BIFC점</span><span class="card-address">부산시 남구 전포대로 133, 11층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a><a class="location-card" data-name-ko="부산 서면점" data-name-en="Busan Seomyeon" data-address-ko="부산시 부산진구 서전로 8, 3층" data-address-en="3F, 8 Seojeon-ro, Busanjin-gu, Busan" href="https://property.wework.com/seomyeon-busan/p/1" target="_blank" rel="noopener noreferrer" aria-label="부산 서면점 디지털 브로셔 새 창에서 열기">
+            <span class="card-mark" aria-hidden="true"></span>
+            <span class="card-info"><span class="card-title">부산 서면점</span><span class="card-address">부산시 부산진구 서전로 8, 3층</span></span>
+            <span class="open-icon" aria-hidden="true">↗</span>
+          </a></div>
+    </section></div>
+<div class="empty" id="emptyState"><strong id="emptyTitle">검색 결과가 없습니다.</strong><span id="emptyMessage">다른 지점명이나 지역, 주소로 다시 검색해 주세요.</span></div>
+<div class="note" id="infoNote">각 지점의 디지털 브로셔는 새 창으로 열립니다. 지점별 공간 구성과 제공 서비스, 이용 가능 여부는 시점에 따라 달라질 수 있으므로 자세한 내용은 위워크 담당자에게 문의해 주세요.</div>
+</div></main>
+<footer class="footer"><div class="container"><span>© WeWork Korea. All rights reserved.</span><a id="footerLink" href="https://www.wework.com/ko-KR/search" target="_blank" rel="noopener noreferrer">WeWork 공식 홈페이지 ↗</a></div></footer>
+<script>
+(function(){
+  'use strict';
+  const dict = {"ko":{"page_title":"지점별 디지털 브로셔 | WeWork Korea","meta":"서울과 부산의 위워크 지점별 디지털 브로셔를 한곳에서 확인하세요.","header_tag":"KOREA · LOCATION BROCHURES","hero_eyebrow":"EXPLORE WEWORK LOCATIONS","hero_title":"관심 있는 위워크 지점,<br>더 자세히 살펴보세요.","hero_description":"서울과 부산의 위워크 지점별 디지털 브로셔를 한곳에 모았습니다.<br>지역이나 지점명으로 검색하고, 원하는 지점의 소개 자료를 확인해 보세요.","toolbar_title":"지점별 디지털 브로셔","search_placeholder":"지점명·주소 검색 (예: 강남, 여의도)","search_aria":"지점명 또는 주소 검색","count":"{n}개 지점 표시","total":"총 {n}개 지점","empty_title":"검색 결과가 없습니다.","empty_message":"다른 지점명이나 지역, 주소로 다시 검색해 주세요.","note":"각 지점의 디지털 브로셔는 새 창으로 열립니다. 지점별 공간 구성과 제공 서비스, 이용 가능 여부는 시점에 따라 달라질 수 있으므로 자세한 내용은 위워크 담당자에게 문의해 주세요.","footer_link":"WeWork 공식 홈페이지 ↗","logo_label":"WeWork 홈페이지 열기","filter_aria":"지역별 필터","filters":{"all":"전체","gangnam":"강남권","central":"도심·홍대","yeouido":"여의도","busan":"부산"},"regions":{"gangnam":"강남권","central":"도심·홍대","yeouido":"여의도","busan":"부산"},"section_count":"{n}개 지점","card_link":"{n} 디지털 브로셔 새 창에서 열기"},"en":{"page_title":"Location Brochures | WeWork Korea","meta":"Find digital brochures for WeWork locations in Seoul and Busan, South Korea.","header_tag":"KOREA · LOCATION BROCHURES","hero_eyebrow":"EXPLORE WEWORK LOCATIONS","hero_title":"Discover your next<br>WeWork location.","hero_description":"Explore digital brochures for WeWork locations across Seoul and Busan.<br>Search by location or address to learn more about each workspace.","toolbar_title":"Location brochures","search_placeholder":"Search locations or addresses","search_aria":"Search locations or addresses","count":"{n} locations shown","total":"{n} locations","empty_title":"No locations found.","empty_message":"Try a different location, area or address.","note":"Digital brochures open in a new tab. Floor plans, amenities and availability may change. Please contact a WeWork representative for current information.","footer_link":"WeWork official website ↗","logo_label":"Open WeWork website","filter_aria":"Filter by area","filters":{"all":"All","gangnam":"Gangnam Area","central":"Central Seoul & Hongdae","yeouido":"Yeouido","busan":"Busan"},"regions":{"gangnam":"Gangnam Area","central":"Central Seoul & Hongdae","yeouido":"Yeouido","busan":"Busan"},"section_count":"{n} locations","card_link":"Open digital brochure for {n} in a new tab"}};
+  const params = new URLSearchParams(window.location.search);
+  const buttons = Array.from(document.querySelectorAll('.filter'));
+  const sections = Array.from(document.querySelectorAll('.region-section'));
+  const languageButtons = Array.from(document.querySelectorAll('.lang-btn'));
+  const cards = Array.from(document.querySelectorAll('.location-card'));
+  const input = document.getElementById('searchInput');
+  const result = document.getElementById('resultCount');
+  const empty = document.getElementById('emptyState');
+  let activeRegion = 'all';
+  let lang = params.get('lang') === 'en' ? 'en' : 'ko';
+  function translate(){
+    const t = dict[lang];
+    document.documentElement.lang = lang;
+    document.title = t.page_title;
+    document.getElementById('pageDescription').content = t.meta;
+    document.getElementById('headerTag').textContent = t.header_tag;
+    document.getElementById('heroEyebrow').textContent = t.hero_eyebrow;
+    document.getElementById('heroTitle').innerHTML = t.hero_title;
+    document.getElementById('heroDescription').innerHTML = t.hero_description;
+    document.getElementById('toolbarTitle').textContent = t.toolbar_title;
+    document.getElementById('emptyTitle').textContent = t.empty_title;
+    document.getElementById('emptyMessage').textContent = t.empty_message;
+    document.getElementById('infoNote').textContent = t.note;
+    document.getElementById('filters').setAttribute('aria-label',t.filter_aria);
+    const homepage = lang === 'en' ? 'https://www.wework.com/search?slug=seoul' : 'https://www.wework.com/ko-KR/search';
+    for (const id of ['brandLink','footerLink']) document.getElementById(id).href = homepage;
+    document.getElementById('brandLink').setAttribute('aria-label',t.logo_label);
+    document.getElementById('footerLink').textContent = t.footer_link;
+    input.placeholder = t.search_placeholder;
+    input.setAttribute('aria-label',t.search_aria);
+    buttons.forEach(btn=>{btn.querySelector('.filter-name').textContent = t.filters[btn.dataset.region];});
+    sections.forEach(section=>{
+      const r = section.dataset.section;
+      section.querySelector('h2').textContent = t.regions[r];
+      section.setAttribute('aria-label',t.regions[r]);
+      section.querySelector('.section-count').textContent = t.section_count.replace('{n}',section.querySelectorAll('.location-card').length);
+    });
+    cards.forEach(card=>{
+      const name = lang === 'en' ? card.dataset.nameEn : card.dataset.nameKo;
+      card.querySelector('.card-title').textContent = name;
+      card.querySelector('.card-address').textContent = lang === 'en' ? card.dataset.addressEn : card.dataset.addressKo;
+      card.setAttribute('aria-label',t.card_link.replace('{n}',name));
+    });
+    languageButtons.forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.lang === lang)));
+    update();
+  }
+  function update(){
+    const query = input.value.trim().toLocaleLowerCase();
+    let visible = 0;
+    sections.forEach(section=>{
+      let sectionVisible = 0;
+      const matchesRegion = activeRegion === 'all' || section.dataset.section === activeRegion;
+      section.querySelectorAll('.location-card').forEach(card=>{
+        const searchText = [card.dataset.nameKo,card.dataset.nameEn,card.dataset.addressKo,card.dataset.addressEn,
+          dict.ko.regions[section.dataset.section],dict.en.regions[section.dataset.section]].join(' ').toLocaleLowerCase();
+        const found = matchesRegion && (!query || searchText.includes(query));
+        card.hidden = !found;
+        if(found) sectionVisible++;
+      });
+      section.hidden = sectionVisible === 0;
+      visible += sectionVisible;
+    });
+    result.textContent = (activeRegion === 'all' && !query ? dict[lang].total : dict[lang].count).replace('{n}',visible);
+    empty.style.display = visible ? 'none' : 'block';
+  }
+  buttons.forEach(btn=>btn.addEventListener('click',()=>{
+    activeRegion = btn.dataset.region;
+    buttons.forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));
+    update();
+  }));
+  languageButtons.forEach(btn=>btn.addEventListener('click',()=>{
+    lang = btn.dataset.lang;
+    translate();
+    try {
+      const url = new URL(window.location.href);
+      if(lang==='en') url.searchParams.set('lang','en'); else url.searchParams.delete('lang');
+      history.replaceState(null,'',url.toString());
+    } catch(e) { /* Switching still works without URL rewriting. */ }
+  }));
+  input.addEventListener('input',update);
+  translate();
+})();
+</script>
+</body>
+</html>
